@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/danbi7184/scheduler-whether/issues"
   },
-  "homepage": "https://github.com/danbi7184/scheduler-whether#readme"
+  "homepage": "https://github.com/danbi7184/scheduler-whether#readme",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
 }
