@@ -39,7 +39,7 @@ Module.register("scheduler-whether", {
 	 	row.appendChild(temp);
 
 		var description = document.createElement("td");
-	 	description.innerHTML = main.description;
+	 	description.innerHTML = weather.description;
 	 	row.appendChild(description);
 
 		 wrapper.appendChild(weatherTable);
