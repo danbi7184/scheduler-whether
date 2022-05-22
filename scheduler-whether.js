@@ -38,6 +38,10 @@ Module.register("scheduler-whether", {
 	 	temp.innerHTML = main.temp;
 	 	row.appendChild(temp);
 
+		var description = document.createElement("td");
+	 	description.innerHTML = main.description;
+	 	row.appendChild(description);
+
 		 wrapper.appendChild(weatherTable);
 		 return wrapper;
 	},
@@ -71,6 +75,7 @@ Module.register("scheduler-whether", {
 			console.log("NotificationReceived:" + notification);
 			this.mainInfo = payload;
 			this.updateDom();
+			break;
 		case "WEATHER_DATA_ERROR":
 		  this.updateDom();
 		  break;
