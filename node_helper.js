@@ -24,10 +24,10 @@ module.exports = NodeHelper.create({
       }, function (error, response, body) {
         if (!error && response.statusCode === 200) {
           var data = JSON.parse(body);
-          if(Array.isArray(data.weather)) {
+          if(data.hasOwnProperty("weather")) {
               var weather = data.weather;
               self.sendSocketNotification("WEATHER_DATA", weather);
-          } else if(Array.isArray(data.main)) {
+          } else if(data.hasOwnProperty("main")) {
               var main = data.main;
               self.sendSocketNotification("MAIN_DATA", main);
           } else {
