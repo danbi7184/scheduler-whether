@@ -1,0 +1,19 @@
+{
+  "name": "scheduler-whether",
+  "version": "1.0.0",
+  "description": "seoul weather",
+  "main": "scheduler-whether.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danbi7184/scheduler-whether.git"
+  },
+  "author": "scheduler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danbi7184/scheduler-whether/issues"
+  },
+  "homepage": "https://github.com/danbi7184/scheduler-whether#readme"
+}
