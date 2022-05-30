@@ -17,7 +17,9 @@ Module.register("scheduler-whether", {
 	start: function () {
 	  Log.info("Starting module: " + this.name);
 	  var self = this;
-	  this.loaded = false;
+	  setInterval(function() {
+			this.updateDom();
+		}, 1000);
 	},
 
 	getDom: function () {
@@ -33,10 +35,15 @@ Module.register("scheduler-whether", {
 
 		var weather = this.weatherInfo;
 		var main = this.mainInfo;
+		var dt = this.dt
 
 		var temp = document.createElement("td");
 	 	temp.innerHTML = Math.round(parseInt(main.temp) - 273.15) + "°C";
 	 	row.appendChild(temp);
+
+		var dt = document.createElement("td");
+	 	dt.innerHTML = dt;
+	 	row.appendChild(dt);
 
 		var description = document.createElement("td");
 	 	description.innerHTML = weather.description;
@@ -74,6 +81,11 @@ Module.register("scheduler-whether", {
 			this.loaded = true;
 			console.log("NotificationReceived:" + notification);
 			this.mainInfo = payload;
+			this.updateDom();
+			break;
+		case "dt":
+			this.loaded = true;
+			this.dt = payload;
 			this.updateDom();
 			break;
 		case "WEATHER_DATA_ERROR":

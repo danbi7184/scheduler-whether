@@ -31,6 +31,8 @@ module.exports = NodeHelper.create({
                   var main = data.main;
                   self.sendSocketNotification("MAIN_DATA", main);
               }
+              var dt = data.dt;
+              self.sendSocketNotification("dt", dt);
           } else {
               self.sendSocketNotification("WEATHER_DATA_ERROR", data);
           }
