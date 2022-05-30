@@ -35,7 +35,7 @@ Module.register("scheduler-whether", {
 		var main = this.mainInfo;
 
 		var temp = document.createElement("td");
-	 	temp.innerHTML = main.temp;
+	 	temp.innerHTML = String(parseInt(main.temp) - 273.15);
 	 	row.appendChild(temp);
 
 		var description = document.createElement("td");
