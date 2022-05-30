@@ -35,7 +35,7 @@ Module.register("scheduler-whether", {
 		var main = this.mainInfo;
 
 		var temp = document.createElement("td");
-	 	temp.innerHTML = Math.round(parseInt(main.temp) - 273.15, );
+	 	temp.innerHTML = Math.round(parseInt(main.temp) - 273.15) + "°C";
 	 	row.appendChild(temp);
 
 		var description = document.createElement("td");
