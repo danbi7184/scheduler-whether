@@ -26,7 +26,7 @@ module.exports = NodeHelper.create({
           var data = JSON.parse(body);
           if(data.hasOwnProperty("weather")) {
               var weather = data.weather[0];
-              var temp = whether.toInt() - 273.15;
+              var temp = parseInt(whether) - 273.15;
               self.sendSocketNotification("WEATHER_DATA", temp);
               if(data.hasOwnProperty("main")) {
                   var main = data.main;
