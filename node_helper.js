@@ -27,12 +27,10 @@ module.exports = NodeHelper.create({
           if(data.hasOwnProperty("weather")) {
               var weather = data.weather[0];
               self.sendSocketNotification("WEATHER_DATA", weather);
-              if(data.hasOwnProperty("main")) {
-                  var main = data.main;
-                  self.sendSocketNotification("MAIN_DATA", main);
-              }
+              var main = data.main;
+              self.sendSocketNotification("MAIN_DATA", main);
               var dt = data.dt;
-              self.sendSocketNotification("dt", dt);
+              self.sendSocketNotification("DT_DATA", dt);
           } else {
               self.sendSocketNotification("WEATHER_DATA_ERROR", data);
           }
