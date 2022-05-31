@@ -17,10 +17,8 @@ Module.register("scheduler-whether", {
 	start: function () {
 	  Log.info("Starting module: " + this.name);
 	  var self = this;
-		count = 0
 		var timer = setInterval(() => {
 				this.updateDom();
-				count++;
 		}, 1000)
 	},
 
@@ -67,6 +65,9 @@ Module.register("scheduler-whether", {
 	  switch (notification) {
 		case "DOM_OBJECTS_CREATED":
 		  this.getWeatherInfo();
+			var timer = serInterval(() => {
+					this.updateDom()
+			}, 1000)
 		  break;
 	  }
 	},
