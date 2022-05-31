@@ -18,8 +18,8 @@ Module.register("scheduler-whether", {
 	  Log.info("Starting module: " + this.name);
 	  var self = this;
 	  setInterval(function() {
-			this.updateDom();
-		}, 3600000);
+			self.updateDom();
+		}, 1000);
 	},
 
 	getDom: function () {

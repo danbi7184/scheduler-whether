@@ -1,5 +1,13 @@
 const NodeHelper = require("node_helper");
 const request = require("request");
+const mysql = require("mysql");
+const conn = {
+  host: 'localhost',
+  port: '3306',
+  user: 'root',
+  password: 'abcd12345',
+  database: 'tempDB'
+};
 
 module.exports = NodeHelper.create({
   start: function () {
@@ -37,4 +45,11 @@ module.exports = NodeHelper.create({
         }
       });
   },
+
+  setDateBase: function() {
+    var connection = mysql.createConnection(conn);
+    connection.connect();
+
+    var Query = "INSERT INTO ";
+  }
 });
