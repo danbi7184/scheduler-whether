@@ -65,10 +65,6 @@ Module.register("scheduler-whether", {
 	  switch (notification) {
 		case "DOM_OBJECTS_CREATED":
 		  this.getWeatherInfo();
-			serInterval(() => {
-					this.updateDom();
-			}, 1000);
-		  break;
 	  }
 	},
 
