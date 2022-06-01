@@ -16,9 +16,8 @@ Module.register("scheduler-whether", {
 
 	start: function () {
 	  Log.info("Starting module: " + this.name);
-	  var self = this;
 		setInterval(() => {
-				self.updateDom();
+			this.updateDom();
 		}, 600000);
 	},
 
