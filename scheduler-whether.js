@@ -28,7 +28,7 @@ Module.register("scheduler-whether", {
 		var weather = this.weatherInfo;
 
 		var temp = document.createElement("td");
-	 	temp.innerHTML = weather;
+	 	temp.innerHTML = weather[1].temper;
 	 	row.appendChild(temp);
 
 		 wrapper.appendChild(weatherTable);
