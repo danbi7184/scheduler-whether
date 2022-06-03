@@ -19,7 +19,7 @@ module.exports = NodeHelper.create({
     switch (notification) {
       case "GET_WEATHER":
         conn.connect();
-        conn.query('SELECT temper FROM temperature', function (error, results, fields) {
+        conn.query('SELECT temper FROM temperature', function (error, results) {
           if (error) {
             console.log(error);
           }
