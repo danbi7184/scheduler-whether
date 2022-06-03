@@ -20,7 +20,7 @@ module.exports = NodeHelper.create({
     switch (notification) {
       case "GET_WEATHER":
         db.connect();
-        db.query("select temper from temperature", function (error, result) {
+        db.query("select temper from temperature order by temRank DESC", function (error, result) {
           if (error) {
             console.log(error);
           }

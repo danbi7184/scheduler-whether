@@ -28,7 +28,15 @@ Module.register("scheduler-whether", {
 		var weather = this.weatherInfo;
 
 		var temp = document.createElement("td");
-	 	temp.innerHTML = weather[1].temper;
+	 	temp.innerHTML = weather[0].temper;
+	 	row.appendChild(temp);
+
+		var avg_temp = document.createElement("td");
+		var avg = 0;
+		for(int i=0; i<weather.length; i++) {
+			avg += weather[i].temper;
+		}
+	 	avg_temp.innerHTML = avg/weather.length;
 	 	row.appendChild(temp);
 
 		 wrapper.appendChild(weatherTable);
