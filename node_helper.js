@@ -27,8 +27,6 @@ module.exports = NodeHelper.create({
             console.log(results);
             this.sendSocketNotification("WEATHER_DATA", results);
           }
-          console.log(results);
-          this.sendSocketNotification("WEATHER_DATA", results);
         });
         conn.end();
     }
