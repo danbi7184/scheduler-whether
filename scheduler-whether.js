@@ -36,7 +36,7 @@ Module.register("scheduler-whether", {
 		for(var i=0; i<weather.length; i++) {
 			avg += weather[i].temper;
 		}
-	 	avg_temp.innerHTML = Math.round(avg/result.length*10)/10;
+	 	avg_temp.innerHTML = Math.round(avg/weather.length*10)/10;
 	 	row.appendChild(avg_temp);
 
 		 wrapper.appendChild(weatherTable);
