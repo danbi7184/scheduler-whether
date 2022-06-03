@@ -6,10 +6,6 @@ Module.register("scheduler-whether", {
 	  header: "서울 날씨 정보",
 	},
 
-	getStyles: function () {
-	  return ["scheduler-whether.css"];
-	},
-
 	getHeader: function () {
 		return "<i class='fas fa-sun'></i> " + this.config.header;
 	},
