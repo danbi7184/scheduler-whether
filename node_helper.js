@@ -23,10 +23,14 @@ module.exports = NodeHelper.create({
           if (error) {
             console.log(error);
           }
+          else {
+            console.log(results);
+            this.sendSocketNotification("WEATHER_DATA", results);
+          }
           console.log(results);
           this.sendSocketNotification("WEATHER_DATA", results);
         });
-        connection.end();
+        conn.end();
     }
   },
 });

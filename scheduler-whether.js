@@ -40,10 +40,7 @@ Module.register("scheduler-whether", {
 
 	getWeatherInfo: function () {
 	  Log.info("Requesting weather info");
-	  this.sendSocketNotification("GET_WEATHER", {
-		config: this.config,
-		identifier: this.identifier,
-	  });
+	  this.sendSocketNotification("GET_WEATHER");
 	},
 
 	notificationReceived: function (notification, payload, sender) {
