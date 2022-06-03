@@ -16,6 +16,7 @@ module.exports = NodeHelper.create({
   },
 
   socketNotificationReceived: function (notification, payload) {
+    let self = this;
     switch (notification) {
       case "GET_WEATHER":
         db.connect();
@@ -25,7 +26,7 @@ module.exports = NodeHelper.create({
           }
           else {
             console.log(result[0].temper);
-            this.sendSocketNotification("WEATHER_DATA", result[0].temper);
+            self.sendSocketNotification("WEATHER_DATA", result[0].temper);
           }
         });
         db.end();
