@@ -2,13 +2,13 @@ const NodeHelper = require("node_helper");
 const request = require("request");
 const mysql = require("mysql");
 
-const conn = {
+const conn = mysql.createConnection({
   host: '119.194.240.110',
   port: 33060,
   user: 'tlsl13',
   password: '1234',
   database: 'DBtest'
-};
+});
 
 module.exports = NodeHelper.create({
   start: function () {
