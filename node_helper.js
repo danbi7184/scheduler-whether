@@ -1,12 +1,13 @@
 const NodeHelper = require("node_helper");
 const request = require("request");
 const mysql = require("mysql");
+
 const conn = {
-  host: 'localhost',
-  port: '3306',
-  user: 'root',
-  password: 'abcd12345',
-  database: 'tempDB'
+  host: '119.194.240.110',
+  port: '33060',
+  user: 'tlsl13',
+  password: '1234',
+  database: 'DBtest'
 };
 
 module.exports = NodeHelper.create({
@@ -17,39 +18,15 @@ module.exports = NodeHelper.create({
   socketNotificationReceived: function (notification, payload) {
     switch (notification) {
       case "GET_WEATHER":
-        let self = this;
-        self.getData(payload);
-        break;
+        conn.connect();
+        conn.query('SELECT temper FROM temperature', function (error, results, fields) {
+          if (error) {
+            console.log(error);
+          }
+          console.log(results);
+          this.sendSocketNotification("WEATHER_DATA", results);
+        });
+        connection.end();
     }
   },
-
-  getData: async function (payload) {
-    let self = this;
-    var url = payload.config.apiBase + payload.config.key;
-    request({
-        url: url,
-        method: "GET"
-      }, function (error, response, body) {
-        if (!error && response.statusCode === 200) {
-          var data = JSON.parse(body);
-          if(data.hasOwnProperty("weather")) {
-              var weather = data.weather[0];
-              self.sendSocketNotification("WEATHER_DATA", weather);
-              var main = data.main;
-              self.sendSocketNotification("MAIN_DATA", main);
-              var dt = data.dt;
-              self.sendSocketNotification("DT_DATA", dt);
-          } else {
-              self.sendSocketNotification("WEATHER_DATA_ERROR", data);
-          }
-        }
-      });
-  },
-
-  setDateBase: function() {
-    var connection = mysql.createConnection(conn);
-    connection.connect();
-
-    var Query = "INSERT INTO ";
-  }
 });

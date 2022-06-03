@@ -33,20 +33,10 @@ Module.register("scheduler-whether", {
 		weatherTable.appendChild(row);
 
 		var weather = this.weatherInfo;
-		var main = this.mainInfo;
-		var dt = this.dtInfo;
 
 		var temp = document.createElement("td");
-	 	temp.innerHTML = Math.round(parseInt(main.temp) - 273.15) + "°C";
+	 	temp.innerHTML = weather[0];
 	 	row.appendChild(temp);
-
-		var description = document.createElement("td");
-	 	description.innerHTML = weather.description;
-	 	row.appendChild(description);
-
-		var time = document.createElement("td");
-	 	time.innerHTML = dt;
-	 	row.appendChild(time);
 
 		 wrapper.appendChild(weatherTable);
 		 return wrapper;
@@ -75,18 +65,6 @@ Module.register("scheduler-whether", {
 		  this.weatherInfo = payload;
 		  this.updateDom();
 		  break;
-		case "MAIN_DATA":
-			this.loaded = true;
-			console.log("NotificationReceived:" + notification);
-			this.mainInfo = payload;
-			this.updateDom();
-			break;
-		case "DT_DATA":
-			this.loaded = true;
-			console.log("NotificationReceived:" + notification);
-			this.dtInfo = payload;
-			this.updateDom();
-			break;
 		case "WEATHER_DATA_ERROR":
 		  this.updateDom();
 		  break;
