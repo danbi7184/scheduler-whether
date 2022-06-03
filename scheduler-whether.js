@@ -12,15 +12,12 @@ Module.register("scheduler-whether", {
 
 	start: function () {
 	  Log.info("Starting module: " + this.name);
-		setInterval(() => {
-			this.updateDom();
-		}, 600000);
 	},
 
 	getDom: function () {
 	  var wrapper = document.createElement("div");
 	  if (!this.loaded) {
-		return wrapper;
+			return wrapper;
 	  }
 		var weatherTable = document.createElement("table");
 		weatherTable.className = "small";
