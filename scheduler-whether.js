@@ -33,7 +33,7 @@ Module.register("scheduler-whether", {
 
 		var avg_temp = document.createElement("td");
 		var avg = 0;
-		for(i=0; i<weather.length; i++) {
+		for(var i=0; i<weather.length; i++) {
 			avg += weather[i].temper;
 		}
 	 	avg_temp.innerHTML = Math.round(avg/result.length*10)/10;
