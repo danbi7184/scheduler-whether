@@ -24,8 +24,8 @@ module.exports = NodeHelper.create({
             console.log(error);
           }
           else {
-            console.log(result);
-            this.sendSocketNotification("WEATHER_DATA", result);
+            console.log(result[0].temper);
+            this.sendSocketNotification("WEATHER_DATA", result[0].temper);
           }
         });
         db.end();
